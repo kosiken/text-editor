@@ -2,6 +2,9 @@
   "name": "shop",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": ">=16.20.0"
+  },
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.1",
     "@testing-library/jest-dom": "^5.16.5",
@@ -25,6 +28,7 @@
     "redux-observable": "^2.0.0",
     "reselect": "^4.1.7",
     "rxjs": "^7.8.0",
+    "serve": "^14.1.2",
     "styled-components": "^5.3.6",
     "styled-system": "^5.1.5",
     "typesafe-actions": "^5.1.0",
@@ -63,7 +67,6 @@
     "@types/react-helmet": "^6.1.6",
     "@types/styled-components": "^5.1.26",
     "@types/styled-system": "^5.1.16",
-    "cypress": "^12.3.0",
-    "cypress-autorecord": "^3.1.2"
+    "cypress": "^12.3.0"
   }
 }

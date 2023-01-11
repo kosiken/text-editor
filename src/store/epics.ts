@@ -25,6 +25,7 @@ import {
   // Redux observable is basically a library for running redux side effects
   // so whenever a redux action is dispatched and you want to take an action 
   // because of that action. redux-observable helps you do that.
+  // https://redux-observable.js.org/
   export type RootEpic = Epic<Actions, Actions, RootState, Services>;
   interface EpicConfiguration {
     rootEpic: RootEpic;

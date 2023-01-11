@@ -39,7 +39,6 @@ const properties = compose(
 
 const skeletonLoading = keyframes`
   0% { background-color: hsl(200, 20%, 80%); }
-
   100% { background-color: hsl(200, 20%, 95%) }
  `;
 
@@ -58,7 +57,7 @@ const SkeletonBase = styled.div`
  animation-name: ${skeletonLoading};
  animation-duration: 1s;
  animation-iteration-count: infinite;
-animation-timing-function: linear;
+ animation-timing-function: linear;
 `;
 
 export const Skeleton = styled(SkeletonBase)<SkeletonProps>(

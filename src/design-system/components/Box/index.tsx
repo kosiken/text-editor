@@ -32,6 +32,28 @@ import {
   shadow
 } from 'styled-system';
 
+
+export type BoxProps = React.RefAttributes<any> &
+  React.HTMLAttributes<any> &
+  LayoutProps &
+  ColorProps &
+  BackgroundProps &
+  BorderProps &
+  GridProps &
+  PositionProps &
+  ShadowProps &
+  FlexboxProps &
+  FlexProps &
+  OpacityProps &
+  SpaceProps &
+  OverflowProps &
+  TextAlignProps;
+
+// The styled-system library allows you to extend normal react elements and give them props to allow for flexible 
+//  styling for exammple the  **opacity**  function allows you to do something like 
+// <Box opacity={0.8} >{...children}</Box>. Here the opacity of this element is now readily customizable from inside 
+// Jsx code
+
 const properties = compose(
   layout,
   color,
@@ -51,21 +73,7 @@ const properties = compose(
 );
 
 
-export type BoxProps = React.RefAttributes<any> &
-  React.HTMLAttributes<any> &
-  LayoutProps &
-  ColorProps &
-  BackgroundProps &
-  BorderProps &
-  GridProps &
-  PositionProps &
-  ShadowProps &
-  FlexboxProps &
-  FlexProps &
-  OpacityProps &
-  SpaceProps &
-  OverflowProps &
-  TextAlignProps;
+
 
 export const Box = styled('div')<BoxProps>(
   {

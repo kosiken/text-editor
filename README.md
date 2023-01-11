@@ -9,7 +9,7 @@ project wouldn't win the award for UI but it's performance is very decent.
 - [Technolgies used](#technologies-used)
 - [Parts Implemented](#parts-implemented)
 - [How to run](#how-to-run)
-- [Dire]
+- [Directory Structure](#directory-structure)
 
 ## Technologies used
 
@@ -132,3 +132,35 @@ src/
 
 
 ```
+
+The `design-system` directory contains components that are used globally in all the pages.
+
+The `overrides` directory contains any overides that may be used for some to override components or data from external libraries.
+
+The `services` directory contains api Requests and other external services.
+
+The `store` directories contains redux stores, reducers, actions and redux observable epics.
+
+### Modular Structure Explanation
+
+So in the modules folder there are well modules, each module has the structure
+
+```sh
+
+├── components/
+├── helpers/
+|── hooks/
+└── store/
+
+ ```
+
+ The *components* folder contains React components that are related to that module for example the **shopping-cart** module contains
+ the `CartItem` component that displays a single item in the cart. 
+
+ The *helpers* directory contains utility functions that are related to that module.
+ 
+ The *hooks* directory contains react hook that are related to that module. 
+
+ The *store* directory contains a reducer file where the reducer for the module is located, an epics file for side effects related to the 
+ module to run, The actions file contains redux actions that are associated with the module. The selectors file contains helper fuctions to 
+ retrieve data from the store.

@@ -29,7 +29,6 @@ export type LoadingIndicatorProps = React.HTMLAttributes<HTMLDivElement> & Heigh
   border-color:  ${({ theme }) => `${theme.colors.black} transparent ${theme.colors.black} transparent`};
   animation: ${ringAnimation} 1.2s linear infinite;
   }
- 
  `;
 
 LoadingIndicator.defaultProps = {

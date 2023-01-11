@@ -2,8 +2,7 @@ import styled from 'styled-components';
 import {
     AppTheme,
 } from '../../theme';
-
-import { compose, width, height, size, SizeProps } from 'styled-system';
+import { compose, width, height, size } from 'styled-system';
 
 
 const properties = compose(

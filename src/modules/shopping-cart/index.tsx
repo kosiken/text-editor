@@ -3,6 +3,7 @@ import { Helmet } from 'react-helmet';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import Box from '../../design-system/components/Box';
+import { Button } from '../../design-system/components/Button';
 import Skeleton from '../../design-system/components/Skeleton';
 import Text from '../../design-system/components/Text';
 import { fetchShoppingItems } from '../shopping-list/store/actions';
@@ -63,22 +64,29 @@ const ShoppingCart = () => {
             </>
         )
     }
+
+    const items = Object.keys(cartItems);
     return (
         <Box maxWidth="650px" alignItems="center" margin="0 auto" paddingTop="50px" paddingBottom="10px" id="shopping-cart" position="relative">
             <Helmet>
                 <title>
-                   Shop | Cart
+                    Shop | Cart
                 </title>
             </Helmet>
-            <Box position="absolute" top={0}>
+            {items.length > 0 && (<Box position="absolute" top={0}>
                 <Link to="/checkout" id="checkout-link">
-                    <Text>Checkout</Text>
+                    <Button>Checkout</Button>
                 </Link>
-            </Box>
+            </Box>)}
             {isLoading && renderLoading(5)}
-            {Object.keys(cartItems).map((item, index) => {
+            {items.map((item, index) => {
                 return (<CartItem key={'cart-item-' + item} itemId={item} shoppingListItems={list} addOrRemove={addOrRemove} />)
             })}
+            {(items.length === 0 && !isLoading) && (
+                <Text textAlign="center">
+                    No Items here
+                </Text>
+            )}
         </Box>
     )
 }

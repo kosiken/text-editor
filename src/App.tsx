@@ -7,6 +7,9 @@ import { BrowserRouter as Router } from './overrides/BrowserRouter';
 import EntryPoint from './modules';
 import initializeStore from './store';
 
+
+// styled-components allows you to basically write css syntax inside your 
+// .jsx or .tsx file
 const GlobalStyle = createGlobalStyle<{ theme: AppTheme }>`
   html, body {
     margin: 0;

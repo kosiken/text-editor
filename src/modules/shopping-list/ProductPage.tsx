@@ -11,6 +11,7 @@ import Text from '../../design-system/components/Text';
 import { Button } from '../../design-system/components/Button';
 import { addRemoveFromCart } from '../shopping-cart/store/actions';
 import ProductImage from '../app/components/ProductImage';
+import { Helmet } from 'react-helmet';
 
 
 const ProductPage = () => {
@@ -49,6 +50,11 @@ const ProductPage = () => {
       return (
         <>
         <Box textAlign="center">
+          <Helmet>
+            <title>
+              {product.productName}
+            </title>
+          </Helmet>
         <ProductImage alt={product.productName} src={product.img} />
 
         </Box>
@@ -68,7 +74,7 @@ const ProductPage = () => {
                       {product.available ? 'Available' : 'Unavailable'}
                     </Badge>
                     <span>
-                        {product.recipientCurrencyCode +  to2DecimalPlaces(product.minRecipientDenomination)} - {product.recipientCurrencyCode +  to2DecimalPlaces(product.maxRecipientDenomination)}
+                        {product.recipientCurrencyCode +  to2DecimalPlaces(product.minRecipientDenomination, true)} - {product.recipientCurrencyCode +  to2DecimalPlaces(product.maxRecipientDenomination, true)}
                     </span>
                 </Box>
 
@@ -84,7 +90,7 @@ const ProductPage = () => {
               Porro inventore eum minima unde, perferendis laboriosam aliquid reiciendis, magnam consequatur nam eligendi dicta. Sequi, rem molestias animi culpa repudiandae magni obcaecati repellat eligendi nihil doloribus eos illo distinctio. Fuga!
             </Text>
 
-          <Button onClick={addToCart}>Add to cart</Button>
+          <Button id="submit-btn" onClick={addToCart}>Add to cart</Button>
 
           </Box>
         </Box>

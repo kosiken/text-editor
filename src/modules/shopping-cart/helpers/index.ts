@@ -32,3 +32,16 @@ export const fetchCartFromStorage = () => {
 
     })
 }
+
+export const clearCartFromStorage = () => {
+    return new Promise<boolean>((res) => {
+        try {
+            window.localStorage.clear();
+            res(true)
+        }
+        catch(err) {
+            // ignore error here for now
+            res(false);
+        }
+    })
+}

@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
+import { Helmet } from 'react-helmet';
 import { useDispatch, useSelector } from 'react-redux';
 import styled, {css} from 'styled-components';
 import Box from '../../design-system/components/Box';
@@ -81,7 +82,10 @@ const ShoppingList = () => {
     )
   }
   return (
-    <StyledShoppingList>
+    <StyledShoppingList id="shopping-list">
+                  <Helmet>
+                <title>Shop | Catalogue</title>
+            </Helmet>
         {isLoading && renderLoading(5)}
 
         {list.map((item, index) => {

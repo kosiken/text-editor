@@ -8,8 +8,8 @@ const fetchShoppingItemsEpic: RootEpic = (action$, _, {api}) =>
     action$.pipe(
         filter(isActionOf(fetchShoppingItems.request)),
         switchMap(() => {
-            const apiKey = process.env.REACT_APP_TOKEN;
-            return from(api.fetchGiftCards({countryCode: 'NG'}, {'X-API-KEY': apiKey})).pipe(
+
+            return from(api.fetchGiftCards()).pipe(
                 map(res => {
                     if(res.code === 200) {
                         return fetchShoppingItems.success(res.data!.data.giftCardsRLD.content)

@@ -17,6 +17,7 @@
     "querystring": "^0.2.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-helmet": "^6.1.0",
     "react-redux": "^8.0.5",
     "react-router": "^6.6.1",
     "react-router-dom": "^6.6.1",
@@ -31,9 +32,10 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "dev": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
+    "test:e2e": "cypress open",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -55,8 +57,13 @@
     ]
   },
   "devDependencies": {
+    "@testing-library/cypress": "^9.0.0",
     "@types/color": "^3.0.3",
+    "@types/cypress": "^1.1.3",
+    "@types/react-helmet": "^6.1.6",
     "@types/styled-components": "^5.1.26",
-    "@types/styled-system": "^5.1.16"
+    "@types/styled-system": "^5.1.16",
+    "cypress": "^12.3.0",
+    "cypress-autorecord": "^3.1.2"
   }
 }

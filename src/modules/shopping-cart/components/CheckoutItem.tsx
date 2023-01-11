@@ -10,13 +10,13 @@ import useSelectCartItem from '../hooks/useSelectCartItem';
 import { selectCartItemAmount } from '../store/selectors';
 
 
-interface CartItemProps {
+interface CheckoutItemProps {
     itemId: string;
     shoppingListItems: GiftCard[];
     addOrRemove: (item: string, add: boolean) => void;
 }   
 
-const CartItem: React.FC<CartItemProps> = ({
+const CheckoutItem: React.FC<CheckoutItemProps> = ({
     itemId,
     shoppingListItems,
     addOrRemove
@@ -39,16 +39,12 @@ const CartItem: React.FC<CartItemProps> = ({
         addOrRemove(itemId, add);
     }
   return (
-    <Box display="flex" marginBottom={4} data-test-id="cart-item">
-
-        <Box width="40%" minWidth="100px" maxWidth="300px">
+    <Box display="flex" marginBottom={4} data-test-id="checkout-item">
+        <Box>
+        <Box width="80px" marginBottom="10px">
             <ProductImage alt={item.productName} src={item.img} />
         </Box>
-        <Box flex={1} paddingX="8px" >
-        <Text data-test={'cart-item-' + itemId } className="item-label" >
-                        {item.productName}
-                    </Text>
-        <Box display="flex" width="120px" justifyContent="space-between">
+        <Box display="flex" width="80px" justifyContent="space-between">
             <Button data-test-id="btn-add" size="inline"  padding="10px" onClick={onAddOrRemove.bind(null, true)} variant="elevated">
                +
             </Button >
@@ -59,12 +55,23 @@ const CartItem: React.FC<CartItemProps> = ({
                -
             </Button>
         </Box>
+        </Box>
 
-        <Box display="flex" flexWrap="wrap">
-                    <Text>
-                        {item.recipientCurrencyCode + to2DecimalPlaces(price, true)}
+        <Box flex={1} paddingLeft="15px" paddingRight="8px" >
+        <Text data-test={'cart-item-' + itemId } className="item-label" margin={0} marginBottom="10px" >
+                        {item.productName}
                     </Text>
-                </Box>
+        <Box>
+            <Text mb="10px" marginTop={"2px"}>
+                {`${item.recipientCurrencyCode + ' ' + price} * ${count  + (count > 1 ? ' items' : 'item') }`}
+            </Text>
+            <Text fontWeight="bold"  margin={0} >
+                {item.recipientCurrencyCode + ' ' + to2DecimalPlaces(price * count, true)}
+            </Text>
+       
+        </Box>
+
+
 
         </Box>
 
@@ -72,4 +79,4 @@ const CartItem: React.FC<CartItemProps> = ({
   )
 }
 
-export default CartItem
+export default CheckoutItem

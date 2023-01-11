@@ -17,7 +17,8 @@ export const Text = styled.p<TextProps >`
 
 Text.defaultProps = {
   theme: baseTheme,
-  fontSize: "16px"
+  fontSize: '16px',
+  color: 'inherit',
  
 };
 

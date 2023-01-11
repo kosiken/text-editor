@@ -16,3 +16,8 @@ export const selectCart = createSelector(
     [selectCart],
     state => Object.keys(state).length,
   )
+
+  export const selectCheckingOut = createSelector(
+    [selectRootState],
+    state => state.cart.checkingOut,
+  )

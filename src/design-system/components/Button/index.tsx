@@ -3,12 +3,7 @@ import styled, { css } from 'styled-components';
 import { variant, SpaceProps, space } from 'styled-system';
 import Color from 'color';
 
-import {
-
-    AppTheme,
-
-
-} from '../../theme';
+import {AppTheme} from '../../theme';
 
 
 export interface ButtonProps extends SpaceProps, Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, 'style' | 'className'> {
@@ -93,6 +88,7 @@ ${({ bgColor = 'primary', theme, variant}) => {
                 cursor: pointer;
                 outline: none;
                 background-color: ${darkened};
+                color: ${theme.colors.white};
                 &:disabled {
                 cursor: not-allowed;
                 }

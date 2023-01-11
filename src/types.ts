@@ -62,6 +62,7 @@ export interface ShopState {
 
 export interface CartState {
     cart: Record<string, number>;
+    checkingOut: boolean;
 }
 
 export interface RootState {

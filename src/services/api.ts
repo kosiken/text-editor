@@ -17,14 +17,14 @@ export class MainApi extends ApiBase {
 
     public fetchGiftCards = this.createGenericFetch<
     {status: string; data: InfoDataResponse; }
-    , never>("info/assets", Methods.GET);
+    , never>("response.json", Methods.GET);
 
 
     public static get Instance() {
         return (
           this._instance ||
           (this._instance = new MainApi(
-            'https://api.chimoney.io/v0.2',
+           'http://' + window.location.host,
           ))
         );
     }

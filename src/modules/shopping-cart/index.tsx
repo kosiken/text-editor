@@ -1,8 +1,10 @@
 import { useEffect, useTransition } from 'react'
+import { Helmet } from 'react-helmet';
 import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 import Box from '../../design-system/components/Box';
 import Skeleton from '../../design-system/components/Skeleton';
-
+import Text from '../../design-system/components/Text';
 import { fetchShoppingItems } from '../shopping-list/store/actions';
 import { selectShopListLoading, selectShoppingList } from '../shopping-list/store/selectors';
 import CartItem from './components/CartItem';
@@ -24,7 +26,7 @@ const ShoppingCart = () => {
     const addOrRemove = (item: string, add: boolean) => {
         // This helps us with performance 
         startTransition(() => {
-            dispatch(addRemoveFromCart({item, add}));
+            dispatch(addRemoveFromCart({ item, add }));
         })
     }
 
@@ -48,17 +50,12 @@ const ShoppingCart = () => {
 
                             <Box flex={1} paddingX="8px">
                                 <Skeleton width="100%" height={'14px'} marginBottom="4px" borderRadius={'5px'} />
-
-
                                 <Box display={"flex"} width="120px" justifyContent="space-between">
                                     <Skeleton height={'20px'} width="20px" marginRight={"2px"} />
                                     <Skeleton height={'14px'} borderRadius={'5px'} width="80px" />
                                     <Skeleton height={'40px'} width="20px" marginRight={"2px"} />
                                 </Box>
                             </Box>
-
-
-
                         </Box>
                     )
                 })}
@@ -67,7 +64,17 @@ const ShoppingCart = () => {
         )
     }
     return (
-        <Box maxWidth="650px" alignItems="center" margin="0 auto" paddingY="10px">
+        <Box maxWidth="650px" alignItems="center" margin="0 auto" paddingTop="50px" paddingBottom="10px" id="shopping-cart" position="relative">
+            <Helmet>
+                <title>
+                   Shop | Cart
+                </title>
+            </Helmet>
+            <Box position="absolute" top={0}>
+                <Link to="/checkout" id="checkout-link">
+                    <Text>Checkout</Text>
+                </Link>
+            </Box>
             {isLoading && renderLoading(5)}
             {Object.keys(cartItems).map((item, index) => {
                 return (<CartItem key={'cart-item-' + item} itemId={item} shoppingListItems={list} addOrRemove={addOrRemove} />)

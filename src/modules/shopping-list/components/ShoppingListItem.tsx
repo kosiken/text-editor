@@ -54,7 +54,7 @@ const ShoppingListItem: React.FC<{ item: GiftCard }> = ({ item }) => {
       }, [item]);
 
     return (
-        <Link to={'/product/' + item.productId}>
+        <Link to={'/product/' + item.productId} data-test-id="shopping-item">
             <StyledStandardScreenItem>
                 <StyledItemImage alt={item.productName} src={item.img} />
 
@@ -77,7 +77,7 @@ const ShoppingListItem: React.FC<{ item: GiftCard }> = ({ item }) => {
                       {item.available ? 'Available' : 'Unavailable'}
                     </Badge>
                     <span>
-                        {item.recipientCurrencyCode +  ' ' + to2DecimalPlaces(price)}
+                        {item.recipientCurrencyCode +  ' ' + to2DecimalPlaces(price, true)}
                     </span>
                 </Box>
 

@@ -22,8 +22,9 @@ export type AppTheme = typeof theme;
 
 
 export const getThemeColor = (c: ColorProp, t: AppTheme) => {
-  const color = t.colors[c] || t.colors.primary;
-  return color;
+  const color = t.colors[c];
+  
+  return color || c;
 
 }
 export const baseTheme = theme;

@@ -20,14 +20,18 @@ const ProductPage = () => {
   let { id } = useParams<{ id: string }>();
   const product = useSelector(selectShoppingItem(!id ? undefined : parseInt(id)));
   const addToCart = () => {
-    if(id) dispatch(addRemoveFromCart({item: id, add: true}))
+    if (id && product && product.available){
+      // use product.available to deter bypassing disabled attribute by editing html
+      // in the browaer
+       dispatch(addRemoveFromCart({ item: id, add: true }));
+      }
   }
   useEffect(() => {
     if (typeof product === 'boolean') {
       dispatch(fetchShoppingItems.request());
     }
 
-  }, [product, dispatch])
+  }, [product, dispatch]);
 
   const renderLoading = () => {
 
@@ -40,60 +44,63 @@ const ProductPage = () => {
           <Skeleton width="100%" height="150px" />
         </>
       )
-      
+
     }
     return <></>
   }
 
   const renderItem = () => {
-    if(product) {
+    if (product) {
       return (
         <>
-        <Box textAlign="center">
-          <Helmet>
-            <title>
-              {product.productName}
-            </title>
-          </Helmet>
-        <ProductImage alt={product.productName} src={product.img} />
-
-        </Box>
-
-        <Box marginTop="20px">
-          <Text fontWeight="bold">
-            {product.productName}
-          </Text>
-          <Box display="flex" flexWrap="wrap" marginBottom="20px">
-                    <Badge marginRight={10} marginBottom={'5px'}>
-                        {product.type}
-                    </Badge>
-                    <Badge marginRight={10} marginBottom={'5px'}>
-                      {product.brand.brandName}
-                    </Badge>
-                    <Badge marginRight={10} marginBottom={'5px'} color={product.available ? 'success' : 'error'}>
-                      {product.available ? 'Available' : 'Unavailable'}
-                    </Badge>
-                    <span>
-                        {product.recipientCurrencyCode +  to2DecimalPlaces(product.minRecipientDenomination, true)} - {product.recipientCurrencyCode +  to2DecimalPlaces(product.maxRecipientDenomination, true)}
-                    </span>
-                </Box>
-
-          <Box>
-            <Text>
-              {product.redeemInstruction.concise}
-            </Text>
-            <Text>
-              This is just some dummy text here to add like a product description. Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate ea minima ullam, aperiam corporis temporibus dignissimos odio est accusamus alias doloremque ab provident at saepe! Ut facilis dolor ducimus dolorum?
-              Quos nostrum, doloribus soluta ex vero est pariatur eos iusto repudiandae eveniet, possimus iste, deleniti maiores. Ab harum, alias cum asperiores ratione tempore ex ducimus! Cum porro nesciunt qui sapiente!
-              In dolorum possimus veritatis, quae, non ullam explicabo animi adipisci aut obcaecati omnis quia voluptatum est, blanditiis nobis laboriosam quasi vitae repudiandae quo repellendus accusamus odio qui. Provident, enim ratione.
-              Corrupti dolorem quibusdam molestias atque enim perspiciatis sed quisquam repudiandae doloribus ratione nostrum porro, veniam laudantium vitae impedit commodi aut suscipit et incidunt quidem voluptatibus quasi dolorum, vero ex? Inventore.
-              Porro inventore eum minima unde, perferendis laboriosam aliquid reiciendis, magnam consequatur nam eligendi dicta. Sequi, rem molestias animi culpa repudiandae magni obcaecati repellat eligendi nihil doloribus eos illo distinctio. Fuga!
-            </Text>
-
-          <Button id="submit-btn" onClick={addToCart}>Add to cart</Button>
+          <Box textAlign="center">
+            <Helmet>
+              <title>
+                {product.productName}
+              </title>
+            </Helmet>
+            <ProductImage alt={product.productName} src={product.img} />
 
           </Box>
-        </Box>
+
+          <Box marginTop="20px">
+            <Text fontWeight="bold">
+              {product.productName}
+            </Text>
+            <Box display="flex" flexWrap="wrap" marginBottom="20px">
+              <Badge marginRight={10} marginBottom={'5px'}>
+                {product.type}
+              </Badge>
+              <Badge marginRight={10} marginBottom={'5px'}>
+                {product.brand.brandName}
+              </Badge>
+              <Badge marginRight={10} marginBottom={'5px'} color={product.available ? 'success' : 'error'}>
+                {product.available ? 'Available' : 'Unavailable'}
+              </Badge>
+              <span>
+                {product.recipientCurrencyCode + to2DecimalPlaces(product.minRecipientDenomination, true)} - {product.recipientCurrencyCode + to2DecimalPlaces(product.maxRecipientDenomination, true)}
+              </span>
+            </Box>
+
+            <Box>
+              <Text>
+                {product.redeemInstruction.concise}
+              </Text>
+              <Text>
+                This is just some dummy text here to add like a product description.
+              </Text>
+              <Text>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate ea minima ullam, aperiam corporis temporibus dignissimos odio est accusamus alias doloremque ab provident at saepe! Ut facilis dolor ducimus dolorum?
+                Quos nostrum, doloribus soluta ex vero est pariatur eos iusto repudiandae eveniet, possimus iste, deleniti maiores. Ab harum, alias cum asperiores ratione tempore ex ducimus! Cum porro nesciunt qui sapiente!
+                In dolorum possimus veritatis, quae, non ullam explicabo animi adipisci aut obcaecati omnis quia voluptatum est, blanditiis nobis laboriosam quasi vitae repudiandae quo repellendus accusamus odio qui. Provident, enim ratione.
+                Corrupti dolorem quibusdam molestias atque enim perspiciatis sed quisquam repudiandae doloribus ratione nostrum porro, veniam laudantium vitae impedit commodi aut suscipit et incidunt quidem voluptatibus quasi dolorum, vero ex? Inventore.
+                Porro inventore eum minima unde, perferendis laboriosam aliquid reiciendis, magnam consequatur nam eligendi dicta. Sequi, rem molestias animi culpa repudiandae magni obcaecati repellat eligendi nihil doloribus eos illo distinctio. Fuga!
+              </Text>
+
+              <Button data-test-id="submit-btn" onClick={addToCart}>Add to cart</Button>
+
+            </Box>
+          </Box>
         </>
       )
     }

@@ -26,6 +26,7 @@ project wouldn't win the award for UI but it's performance is very decent.
 - Cart
 - Dummy Checkout Page
 
+
 ## How to run
 
 > You must have node version >= 16 to run this project.

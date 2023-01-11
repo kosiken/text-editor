@@ -62,7 +62,7 @@ const CartItem: React.FC<CartItemProps> = ({
 
         <Box display="flex" flexWrap="wrap">
                     <Text>
-                        {item.recipientCurrencyCode + to2DecimalPlaces(price, true)}
+                        {item.recipientCurrencyCode + ' ' + to2DecimalPlaces(price * count, true)}
                     </Text>
                 </Box>
 

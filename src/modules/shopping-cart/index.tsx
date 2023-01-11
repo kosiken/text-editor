@@ -74,7 +74,7 @@ const ShoppingCart = () => {
                 </title>
             </Helmet>
             {items.length > 0 && (<Box position="absolute" top={0}>
-                <Link to="/checkout" id="checkout-link">
+                <Link to="/checkout" data-test-id="checkout-link">
                     <Button>Checkout</Button>
                 </Link>
             </Box>)}

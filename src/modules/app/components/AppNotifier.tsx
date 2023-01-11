@@ -36,7 +36,7 @@ const AppNotifier = () => {
     return <></>;
    }
   return (
-    <StyledMessageContainer error={type === 'error'} id="app-notifier"> 
+    <StyledMessageContainer error={type === 'error'} data-test-id="app-notifier"> 
         <Text margin={0} fontWeight="bold">{message}</Text>
     </StyledMessageContainer>
   )

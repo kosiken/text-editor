@@ -34,9 +34,9 @@ const StyledShoppingList = styled.div`
         width: 100%;
       }
     }
-        `
+    `
   }}
-`
+`;
 
 
 
@@ -48,7 +48,7 @@ const ShoppingList = () => {
     if(list.length === 0) {
       dispatch(fetchShoppingItems.request());
     }
-  }, [dispatch, list])
+  }, [dispatch, list]);
 
   const renderLoading = (count: number) => {
 
@@ -70,19 +70,15 @@ const ShoppingList = () => {
               <Skeleton height={'14px'} borderRadius={'5px'} width="40px" marginRight={"2px"} />
               <Skeleton height={'14px'} borderRadius={'5px'} width="40px"  />
               </Box>
-              </Box>
-             
-
-              
+              </Box>              
           </Box>
         )
       })}
-
       </>
     )
   }
   return (
-    <StyledShoppingList id="shopping-list">
+    <StyledShoppingList data-test-id="shopping-list">
                   <Helmet>
                 <title>Shop | Catalogue</title>
             </Helmet>

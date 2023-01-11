@@ -27,8 +27,12 @@ export const selectShoppingItem = (id?: number) => {
         [selectShopState],
         state => {
             if(state.items.length < 1) {
+                // shopping items have not been loaded yet
                 return false;
             }
+            // Shopping items loaded
+            // returns undefined if *id* is invalid or item is not
+            // found in the shopping list
            return !id ? undefined : state.items.find(item => item.productId === id)
         },
     )

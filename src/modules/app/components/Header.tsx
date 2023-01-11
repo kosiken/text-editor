@@ -10,11 +10,12 @@ import useScrollFix from '../hooks/useScrollFix';
 
 
 const Header = () => {
+    // Keeps track of the cart state to show to the user
     const cartItems = useSelector(selectCart);
     const [itemCount, setItemCount] = useState(0);
     useScrollFix();
     useEffect(() => {
-        setItemCount(Object.keys(cartItems).length);
+        setItemCount(Object.keys(cartItems).reduce((a, b) => a + cartItems[b], 0));
     }, [cartItems]);
   return (
     <header>
@@ -29,7 +30,7 @@ const Header = () => {
             </Link>
 
             <Link to="/cart">
-                <Text color="secondary" id="cart-indicator">
+                <Text color="secondary" data-test-id="cart-indicator">
                     Cart({itemCount})
                 </Text>
             </Link>

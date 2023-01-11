@@ -8,8 +8,8 @@ describe('Shop', () => {
       })
     it('should load shopping list', () => {
         // Checks if the page loaded successfully
-        cy.get('#shopping-list').should('exist')
-        cy.get('title').should('contain', 'Shop | Catalogue')
+        cy.get('[data-test-id="shopping-list"]').should('exist');
+        cy.get('title').should('contain', 'Shop | Catalogue');
     });
 
     it("should add to cart", () => {
@@ -22,13 +22,13 @@ describe('Shop', () => {
         cy.findByText('Add to cart').click();
         
         // test that the app notified user of the added item
-        const appNotifier =  cy.get('#app-notifier').should('exist');
+        const appNotifier =  cy.get('[data-test-id="app-notifier"]').should('exist');
         appNotifier.should('contain','item added successfully');
         cy.wait(1000);
 
         // test that the cart indicator was changed to reflect new 
         // cart length
-        cy.get('#cart-indicator').should('contain', 'Cart(1)');
+        cy.get('[data-test-id="cart-indicator"]').should('contain', 'Cart(1)');
     });
 
     it('should add and remove from cart', () => {
@@ -37,9 +37,9 @@ describe('Shop', () => {
         // wait for page to render
         cy.wait(500);
         cy.findByText('Add to cart').click();
-        cy.get('#cart-indicator').should('contain', 'Cart(1)');
+        cy.get('[data-test-id="cart-indicator"]').should('contain', 'Cart(1)');
         // Go to the Cart page
-        cy.get('#cart-indicator').click();
+        cy.get('[data-test-id="cart-indicator"]').click();
         // wait for page to render
         cy.wait(500);
 
@@ -61,29 +61,28 @@ describe('Shop', () => {
         // when the item count goes to zero
         btn.click();
         cy.wait(500);
-        cy.get('#shopping-cart [data-test-id="cart-item"]').should('have.length', 0);
+        cy.get('[data-test-id="shopping-list"] [data-test-id="cart-item"]').should('have.length', 0);
     });
 
     it('should checkout from store', () => {
         // This tests that a user is able to checkout 
         // from the shop website
 
-
         // go to cart page
         cy.get('[data-test-id="shopping-item"]').first().click();
         // wait for page to render
         cy.wait(500);
         // add item to card
-        cy.get('#submit-btn').click();
-        cy.get('#cart-indicator').should('contain', 'Cart(1)');
-        cy.get('#cart-indicator').click();
+        cy.get('[data-test-id="submit-btn"]').click();
+        cy.get('[data-test-id="cart-indicator"]').should('contain', 'Cart(1)');
+        cy.get('[data-test-id="cart-indicator"]').click();
         // wait for page to render
         cy.wait(500);
         // add one more item
         cy.get('[data-test-id="btn-add"]').first().click();
         cy.wait(500);
         // go to checkout page
-        cy.get('#checkout-link').click();
+        cy.get('[data-test-id="checkout-link"]').click();
         cy.wait(500);
         const checkoutButton = cy.get('#checkout-button');
         checkoutButton.should('contain', 'Checkout');
@@ -112,7 +111,7 @@ describe('Shop', () => {
 
         // Test that a notification is sent to the user confirming their 
         // checkout
-        cy.get('#app-notifier').should('contain', 'Checkout was successfull, thanks for shopping');
+        cy.get('[data-test-id="app-notifier"]').should('contain', 'Checkout was successfull, thanks for shopping');
     })
 
 

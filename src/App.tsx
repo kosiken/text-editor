@@ -1,14 +1,11 @@
 import React from 'react';
-
-import { PersistGate } from 'redux-persist/integration/react'
 import { Provider } from "react-redux";
 import { ThemeProvider, createGlobalStyle } from 'styled-components';
 import { AppTheme, baseTheme } from './design-system/theme';
-import func from './store';
 import { history } from './history';
-
 import { BrowserRouter as Router } from './overrides/BrowserRouter';
 import EntryPoint from './modules';
+import initializeStore from './store';
 
 const GlobalStyle = createGlobalStyle<{ theme: AppTheme }>`
   html, body {
@@ -36,18 +33,16 @@ const GlobalStyle = createGlobalStyle<{ theme: AppTheme }>`
   }
 `;
 
-const { store, persistor } = func();
+const store = initializeStore();
 
 function App() {
   return (
     <ThemeProvider theme={baseTheme}>
       <GlobalStyle />
       <Provider store={store}>
-        <PersistGate loading={null} persistor={persistor}>
         <Router navigator={history}>
             <EntryPoint />
         </Router>
-        </PersistGate>
       </Provider>
 
     </ThemeProvider>

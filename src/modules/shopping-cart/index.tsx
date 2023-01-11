@@ -25,7 +25,9 @@ const ShoppingCart = () => {
     const cartItems = useSelector(selectCart);
 
     const addOrRemove = (item: string, add: boolean) => {
-        // This helps us with performance 
+        // This helps us with performance, It allows for the 
+        // changes that would be caused by dispatching the action
+        // addRemoveFromCart does not block user inouts
         startTransition(() => {
             dispatch(addRemoveFromCart({ item, add }));
         })
@@ -38,7 +40,7 @@ const ShoppingCart = () => {
     }, [dispatch, list])
 
     const renderLoading = (count: number) => {
-
+        // creates an empty array that we use to render loadimg placeholders
         const numberofSquares = new Array(count).fill(0);
         return (
             <>
@@ -48,7 +50,6 @@ const ShoppingCart = () => {
                             <Box width="40%" minWidth="100px" maxWidth="300px">
                                 <Skeleton width={'100%'} height="80px" marginBottom="10px" />
                             </Box>
-
                             <Box flex={1} paddingX="8px">
                                 <Skeleton width="100%" height={'14px'} marginBottom="4px" borderRadius={'5px'} />
                                 <Box display={"flex"} width="120px" justifyContent="space-between">
@@ -60,7 +61,6 @@ const ShoppingCart = () => {
                         </Box>
                     )
                 })}
-
             </>
         )
     }

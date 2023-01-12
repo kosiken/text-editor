@@ -57,7 +57,7 @@ or use https if it suits you better
 
 ```sh
 
-    https://github.com/kosiken/shop.git
+    git clone https://github.com/kosiken/shop.git
 
 ```
 

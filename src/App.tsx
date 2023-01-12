@@ -11,14 +11,6 @@ import initializeStore from './store';
 // styled-components allows you to basically write css syntax inside your 
 // .jsx or .tsx file
 const GlobalStyle = createGlobalStyle<{ theme: AppTheme }>`
-  html, body {
-    margin: 0;
-    padding: 0;
-    background-color: #F8F8F8;
-    font-family: Rubik;
-    font-size: 0.9rem
-  }
-
   a {
     text-decoration: none;
     color: inherit;

@@ -43,7 +43,7 @@ project wouldn't win the award for UI but it's performance is very decent and th
 
 ## How to run
 
-> You must have node version >= 16 to run this project.
+> You must have node version >= 16.2.0 to run this project.
 
 
 ### Clone this project 

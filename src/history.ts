@@ -11,7 +11,6 @@ export enum ROUTES {
 const history = createBrowserHistory({window});
 
 const navigateTo = (route: string) => {
-  console.log(route);
   history.push(route);
 };
 

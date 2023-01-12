@@ -33,16 +33,7 @@ import axios, {
         timeout: 2000 * 180,
       });
     }
-    public abstract resetAppState(): any;
-  
-    public setToken(token: string): void {
-      this.apiToken = token;
-    }
-  
-    public getToken(): string {
-      return this.apiToken;
-    }
-  
+
     public setApi(url: string) {
       this.api = axios.create({
         baseURL: url,
@@ -124,54 +115,7 @@ import axios, {
         };
       }
     }
-  
-    protected delayed<T>(resp: T, delay: number, fail = false): Promise<T> {
-      return new Promise((res, rej) => {
-        setTimeout(() => {
-          if (fail) {
-            rej({
-              errorData: {message: 'An error occurred'},
-              code: 500,
-              error: 'An error occurred',
-            });
-          } else {
-            res(resp);
-          }
-        }, delay);
-      });
-    }
-  
-    protected createMockRequest<TResponse, TBody extends Record<string, any>>(
-      url: string,
-      method: Methods = Methods.POST,
-    ) {
-      return async (
-        res: TResponse,
-        delay: number,
-        params?: Record<string, any>,
-        headers?: Record<string, any>,
-        body?: TBody,
-        fail = false,
-      ) => {
-        // tslint:disable-next-line: no-console
-        console.log(
-          `${method} ${url} body => ${JSON.stringify(body)}`,
-          params,
-          headers,
-        );
-        try {
-          const ans = await this.delayed<TResponse>(res, delay, fail);
-          return {code: 200, data: ans};
-        } catch (err) {
-          return err as {
-            errorData: {message: string};
-            code: number;
-            error: string;
-          };
-        }
-      };
-    }
-  
+
     protected createGenericFetch<TResponse, TBody extends Record<string, any>>(
       url: string,
       method: Methods = Methods.POST,

@@ -11,9 +11,6 @@ type InfoDataResponse = {
 
 export class MainApi extends ApiBase {
     private static _instance: MainApi;
-    public resetAppState() {
-        this.setToken('');
-    }
 
     public fetchGiftCards = this.createGenericFetch<
     {status: string; data: InfoDataResponse; }, never>("response.json", Methods.GET);

@@ -35,4 +35,6 @@
 //     }
 //   }
 // }
+
+// Adds the testing library commands to cypress
 import "@testing-library/cypress/add-commands";

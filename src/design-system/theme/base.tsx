@@ -10,21 +10,26 @@ export const shadows = {
     xlg: '0px 8px 24px rgba(33, 163, 116, 0.1)'
   };
 
-  const theme = {
+/**
+ * This theme object contains colors, shadows
+ * and other utilites we use in styling out application
+ */
+const theme = {
     breakpoints,
     colors,
-    radii: ['0px', '2px', '3px', '4px', '8px', '30px'],
-    transition: ['0.2s'],
     shadows,
   };
 
 export type AppTheme = typeof theme;
 
-
+/**
+ * 
+ * @param c The color to load
+ * @param t The current theme in use
+ * @returns A color from the theme if found or just the initial color passed
+ */
 export const getThemeColor = (c: ColorProp, t: AppTheme) => {
   const color = t.colors[c];
-  
   return color || c;
-
 }
 export const baseTheme = theme;

@@ -31,6 +31,21 @@ describe('Shop', () => {
         cy.get('[data-test-id="cart-indicator"]').should('contain', 'Cart(1)');
     });
 
+    it('should search for items', () => {
+        cy.wait(500); // Wait for shopping items to load 
+        cy.get('[data-test-id="search-input"]').type('Crypto', { delay: 100 });
+
+        // test search overlay is displayed
+        cy.get('[data-test-id="search-results-overlay"]').should('exist');
+
+        // test search container is visible
+        cy.get('[data-test-id="search-results-container"]').should('be.visible');
+        cy.wait(500); 
+        // should render search result
+        cy.findByText('CryptoVoucher NG').should('exist');
+
+    });
+
     it('should add and remove from cart', () => {
         // Same process as above
         cy.get('[data-test-id="shopping-item"]').first().click();
@@ -107,12 +122,12 @@ describe('Shop', () => {
         cy.findByText("Completing checkout").should('exist');
 
         // wait for checkout to complete
-        cy.wait(1600)
+        cy.wait(1600);
 
         // Test that a notification is sent to the user confirming their 
         // checkout
         cy.get('[data-test-id="app-notifier"]').should('contain', 'Checkout was successfull, thanks for shopping');
-    })
+    });
 
 
 });

@@ -16,6 +16,7 @@ const StyledShoppingList = styled.div`
     margin: 0 auto;
     column-gap: 50px;
     row-gap: 30px;
+    padding: 10px;
 
     ${({ theme }) => {
     return css`

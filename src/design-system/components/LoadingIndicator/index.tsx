@@ -2,6 +2,7 @@ import styled, { keyframes } from "styled-components";
 import { height, width, WidthProps, HeightProps} from "styled-system";
 import { AppTheme } from "../../theme";
 
+// Just an animation for showing that a task is running
 const ringAnimation = keyframes`
   0% {
     transform: rotate(0deg);

@@ -2,6 +2,11 @@ export function reduceString(text: string, length = 10): string {
     return text.length > length ? text.substring(0, length - 3) + '...' : text
 }
 
+/**
+ * 
+ * @param numberString String value of a number
+ * @returns A comma seperated string value of the number
+ */
 export function putCommas(numberString: string) {
     if (numberString.length < 4) {
       return numberString;
@@ -23,9 +28,19 @@ export function putCommas(numberString: string) {
     return numberWithCommas.reverse().join('');
   }
 
+/**
+ * 
+ * @param numString Number to put in 2 decimal places
+ * @param withCommas Indicate if the returned value should be comma seperated
+ * @returns string - The value in two decimal places
+ */
 export function to2DecimalPlaces(numString: string | number, withCommas = false): string {
     let _number =
       typeof numString === 'string' ? parseFloat(numString) : numString;
+    if(isNaN(_number)) {
+      // Cant represent invalid numbers
+      return numString as string;
+    }
     _number = Math.round((_number + Number.EPSILON) * 100) / 100;
     const ans = _number.toFixed(2);
     if (!withCommas) {

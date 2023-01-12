@@ -53,6 +53,10 @@ export type SkeletonProps = React.RefAttributes<any> &
   FlexProps &
   SpaceProps;
 
+/**
+ * Skeleton is used to render a placeholder content while we wait 
+ * for the actual content to load. It provides a less jarring transition
+ */
 const SkeletonBase = styled.div`
  animation-name: ${skeletonLoading};
  animation-duration: 1s;

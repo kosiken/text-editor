@@ -2,14 +2,18 @@
 
 This project was bootstarapped with [CRA](https://create-react-app.dev/). Yes I could have used
 [craco](https://craco.js.org/) but there isn't much custom configuration needed  to be done. The 
-project wouldn't win the award for UI but it's performance is very decent. 
+project wouldn't win the award for UI but it's performance is very decent and the UX is good too. 
 
 ## Table of contents
 
 - [Technolgies used](#technologies-used)
 - [Parts Implemented](#parts-implemented)
 - [How to run](#how-to-run)
+    - [Test mode](#run-the-local-webpack-dev-server)
+    - [Production](#build-and-run-in-production)
 - [Directory Structure](#directory-structure)
+- [Modular Structure Explanation](#modular-structure-explanation)
+- [How to improve performance of flipbook]
 
 ## Technologies used
 
@@ -17,6 +21,14 @@ project wouldn't win the award for UI but it's performance is very decent.
 - [React v18.2.0](https://beta.reactjs.org/)
 - [Cypress v12.3.0](https://cypress.io) For tests, uses Mocha and Chai under the hood for assertions.
 - [Testing Library Cypress](https://testing-library.com/docs/cypress-testing-library/intro/) For tests
+- [Styled Components](https://styled-components.com/) Allows you to style components with css inside your tsx or jsx file
+    - Download the [vscode-styled-components](https://marketplace.visualstudio.com/items?itemName=styled-components.vscode-styled-components) extension if you are using vscode to get full text highlighting.
+- [Styled System](https://styled-system.com/) Styled System is a collection of utility functions that add style props to your React components
+- [React Helmet](https://www.npmjs.com/package/react-helmet) For managing the `<head></head>` of the document
+- [Redux / Redux Toolkit](https://redux-toolkit.js.org/) For state management
+- [Redux Observable](https://redux-observable.js.org/) To manage and run redux side effects. 
+- [Typesafe Actions](https://www.npmjs.com/package/typesafe-actions) To define redux actions that are typesafe with typescript.
+
 
 
 ## Parts Implemented
@@ -70,7 +82,7 @@ Run this command
 
 ```
 
-### Build and run
+### Build and run in production
 
 You have to make sure you are running on an environment that has at
 least 2048mb or RAM available otherwise the build may fail
@@ -144,7 +156,7 @@ The `store` directories contains redux stores, reducers, actions and redux obser
 
 ### Modular Structure Explanation
 
-So in the modules folder there are well modules, each module has the structure
+So in the modules folder there are unique modules, each module has the structure, though some folders may be missing from a few modules because they may not be needed there. A module may also export an index.tsx file if it has an index page to display. Modules can share data with each other, but when a particular component or logic could be used in more than one module it may be moved to the `app` module, which is like a shared module.
 
 ```sh
 
@@ -165,3 +177,9 @@ So in the modules folder there are well modules, each module has the structure
  The *store* directory contains a reducer file where the reducer for the module is located, an epics file for side effects related to the 
  module to run, The actions file contains redux actions that are associated with the module. The selectors file contains helper fuctions to 
  retrieve data from the store.
+
+
+## How to improve performance of flipbook
+
+ ### Author 
+ Allison Kosisochukwu

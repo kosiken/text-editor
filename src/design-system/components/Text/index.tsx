@@ -3,7 +3,7 @@ import { space, textStyle, typography, display, color, textAlign, compose, margi
 import { baseTheme, ColorProp } from '../../theme';
 import { getThemeColor } from '../../theme';
 
-export type TextProps = React.ButtonHTMLAttributes<HTMLParagraphElement | HTMLSpanElement> & FontSizeProps & SpaceProps & FontWeightProps & TextAlignProps;
+export type TextProps = Omit<React.ButtonHTMLAttributes<HTMLParagraphElement | HTMLSpanElement>, 'style'> & FontSizeProps & SpaceProps & FontWeightProps & TextAlignProps;
 
 const styledProps = compose(color, space, textStyle, typography, display, margin, fontWeight, fontSize, textAlign);
 

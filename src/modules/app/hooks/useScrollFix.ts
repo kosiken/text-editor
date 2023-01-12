@@ -10,31 +10,38 @@ const useScrollFix = () => {
     useDebugValue("preventSpace")
 
     useEffect(() => {
-        function onKeyDown (e: KeyboardEvent) {
-            if(e.code === 'ArrowUp' || e.code === 'ArrowDown') {
-                setPreventSpace(true);
-           }
-           if(e.code === "Space" && preventSpace) {
-            e.preventDefault();
-          
-        }
-    
-        }
-    
-        function onKeyUp(e: KeyboardEvent) {
-            if(e.code === 'ArrowUp' || e.code === 'ArrowDown') {
-                setPreventSpace(false);
+        function onKeyDown(e: KeyboardEvent) {
+            try {
+                if (e.code === 'ArrowUp' || e.code === 'ArrowDown') {
+                    setPreventSpace(true);
+                }
+                if (e.code === "Space" && preventSpace) {
+                    e.preventDefault();
+                }
+            } catch (err) {
+                // if for some reason this fails ignore and continue with the app
             }
-        }
-            window.addEventListener('keydown', onKeyDown);
-            window.addEventListener('keyup', onKeyUp);
 
-            return () => {
-                window.removeEventListener('keydown', onKeyDown);
-                window.removeEventListener('keyup', onKeyUp);
+        }
+
+        function onKeyUp(e: KeyboardEvent) {
+            try {
+                if (e.code === 'ArrowUp' || e.code === 'ArrowDown') {
+                    setPreventSpace(false);
+                }
+            } catch (err) {
+                // if for some reason this fails ignore and continue with the app
             }
-           
-        
+        }
+        window.addEventListener('keydown', onKeyDown);
+        window.addEventListener('keyup', onKeyUp);
+
+        return () => {
+            window.removeEventListener('keydown', onKeyDown);
+            window.removeEventListener('keyup', onKeyUp);
+        }
+
+
     }, [preventSpace]);
 }
 

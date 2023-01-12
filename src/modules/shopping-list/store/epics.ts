@@ -24,7 +24,6 @@ const fetchShoppingItemsEpic: RootEpic = (action$, _, {api}) =>
         })
     )
 
-
 const ShoppingListEpics = [
     fetchShoppingItemsEpic,
 ]

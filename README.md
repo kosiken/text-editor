@@ -14,7 +14,7 @@ project wouldn't win the award for UI but it's performance is very decent and th
     - [Testing](#run-end-to-end-tests)
 - [Directory Structure](#directory-structure)
 - [Modular Structure Explanation](#modular-structure-explanation)
-- [How to improve performance of flipbook]
+- [How to improve performance of flipbook](#how-to-improve-performance-of-flipbook)
 
 ## Technologies used
 

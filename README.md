@@ -11,6 +11,7 @@ project wouldn't win the award for UI but it's performance is very decent and th
 - [How to run](#how-to-run)
     - [Test mode](#run-the-local-webpack-dev-server)
     - [Production](#build-and-run-in-production)
+    - [Testing](#run-end-to-end-tests)
 - [Directory Structure](#directory-structure)
 - [Modular Structure Explanation](#modular-structure-explanation)
 - [How to improve performance of flipbook]

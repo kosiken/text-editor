@@ -76,7 +76,8 @@ or above `16.2.0`
 
 ### Run The Local Webpack Dev server
 
-Run this command 
+Run this command. You must also have the 3000 port available, though you can change this in `./cypress.config.ts` and in `./package.json`. 
+to run on different ports
 
 ```sh
 
@@ -87,17 +88,21 @@ Run this command
 ### Build and run in production
 
 You have to make sure you are running on an environment that has at
-least 2048mb or RAM available otherwise the build may fail
+least 2048mb or RAM available otherwise the build may fail. You must also 
+have the 3000 port available, though you can change this in `./cypress.config.ts` and in `./package.json`. 
+to run on different ports
 
 ```sh
 
     npm run build && npm run serve
 
 ```
-
+Then go to http://localhost:3000 on your machine
 
 ### Run End to End Tests
 
+You must have the 3000 port available, though you can change this in `./cypress.config.ts` and in `./package.json`. 
+to run on different ports
 #### First you have to 
 
 - Make sure to install the dev dependencies are installed

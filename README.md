@@ -37,6 +37,7 @@ project wouldn't win the award for UI but it's performance is very decent and th
 - Product Detail page
 - Cart
 - Dummy Checkout Page
+- A search input
 
 
 ## How to run

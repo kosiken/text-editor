@@ -6,8 +6,6 @@ export const selectShopState = createSelector(
     state => state.shop,
   );
 
-
-
 export const selectShopListLoading = createSelector(
     [selectShopState],
     state => state.fetchingItems,
@@ -18,8 +16,6 @@ export const selectShoppingList = createSelector(
     [selectShopState],
     state => state.items,
 );
-
-
 
 export const selectShoppingItem = (id?: number) => {
 

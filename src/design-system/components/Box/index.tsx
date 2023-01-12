@@ -72,9 +72,6 @@ const properties = compose(
   shadow
 );
 
-
-
-
 export const Box = styled('div')<BoxProps>(
   {
     boxSizing: 'border-box'

@@ -51,4 +51,4 @@ const AppNotifier = () => {
   )
 }
 
-export default AppNotifier
+export default AppNotifier;

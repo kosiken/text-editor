@@ -1,19 +1,19 @@
 import {
   combineReducers,
   configureStore,
-} from "@reduxjs/toolkit";
-import { ToolkitStore } from "@reduxjs/toolkit/dist/configureStore";
-import thunk from "redux-thunk";
-import api from "../services/api";
-import { RootState, Services } from "../types";
-import { Actions, configureEpic } from "./epics";
-import { logger } from "./middleware";
-import appReducer from "../modules/app/store/appReducer";
+} from '@reduxjs/toolkit';
+import { ToolkitStore } from '@reduxjs/toolkit/dist/configureStore';
+import thunk from 'redux-thunk';
+import api from '../services/api';
+import { RootState, Services } from '../types';
+import { Actions, configureEpic } from './epics';
+import { logger } from './middleware';
+import appReducer from '../modules/app/store/appReducer';
 
 
-import shoppingListReducer from "../modules/shopping-list/store/shoppingListReducer";
-import cartReducer from "../modules/shopping-cart/store/cartReducer";
-import { initCart } from "../modules/shopping-cart/store/actions";
+import shoppingListReducer from '../modules/shopping-list/store/shoppingListReducer';
+import cartReducer from '../modules/shopping-cart/store/cartReducer';
+import { initCart } from '../modules/shopping-cart/store/actions';
 
 
 // we use this global store variable so that we can keep a reference 
@@ -36,7 +36,6 @@ const initialzeStore = () => {
     getStore: () => s,
   };
   const { rootEpic, epicMiddleware } = configureEpic(services);
-  
 
   const baseMiddleWare = [thunk, logger, epicMiddleware];
 

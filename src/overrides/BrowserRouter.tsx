@@ -1,15 +1,10 @@
-import * as React from "react";
+import * as React from 'react';
 
-import { BrowserHistory } from "history";
-import {
-
-    Router,
-
-  } from "react-router";
-import { BrowserRouterProps } from "react-router-dom";
+import { BrowserHistory } from 'history';
+import { Router } from 'react-router';
+import { BrowserRouterProps } from 'react-router-dom';
 /**
  * A `<Router>` for use in web browsers. Provides the cleanest URLs.
- *
  * @see https://reactrouter.com/docs/en/v6/routers/browser-router
  */
  export function BrowserRouter({
@@ -18,8 +13,6 @@ import { BrowserRouterProps } from "react-router-dom";
     navigator
   }: BrowserRouterProps & {navigator: BrowserHistory}  ) {
     let historyRef = React.useRef<BrowserHistory>(navigator);
-
-  
     let history = historyRef.current;
     let [state, setState] = React.useState({
       action: history.action,

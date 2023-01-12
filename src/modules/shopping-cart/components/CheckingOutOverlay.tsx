@@ -6,7 +6,6 @@ import Text from '../../../design-system/components/Text'
 import { selectCheckingOut } from '../store/selectors'
 
 const CheckingOutOverlay: React.FC = () => {
-
     const show = useSelector(selectCheckingOut);
   
   return (

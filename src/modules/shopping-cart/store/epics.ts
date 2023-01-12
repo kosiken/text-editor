@@ -18,7 +18,7 @@ const initCartEpic: RootEpic = action$ =>
                     })
                 )
         })
-    )
+    );
 
 const addRemoveCartEpic: RootEpic = (action$, state$, { api }) =>
     action$.pipe(
@@ -104,13 +104,12 @@ const checkOutEpic: RootEpic = action$ =>
                     })
                 )
         })
-    )
-
+    );
 
 const CartpingListEpics = [
     initCartEpic,
     addRemoveCartEpic,
     checkOutEpic,
-]
+];
 
 export default CartpingListEpics;

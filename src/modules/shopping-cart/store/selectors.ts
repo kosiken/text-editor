@@ -15,9 +15,9 @@ export const selectCart = createSelector(
   export const selectCartItemsCount = createSelector(
     [selectCart],
     state => Object.keys(state).length,
-  )
+  );
 
   export const selectCheckingOut = createSelector(
     [selectRootState],
     state => state.cart.checkingOut,
-  )
+  );

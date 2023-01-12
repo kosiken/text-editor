@@ -9,7 +9,6 @@ import ProductImage from '../../app/components/ProductImage';
 import useSelectCartItem from '../hooks/useSelectCartItem';
 import { selectCartItemAmount } from '../store/selectors';
 
-
 interface CartItemProps {
     itemId: string;
     shoppingListItems: GiftCard[];
@@ -72,4 +71,4 @@ const CartItem: React.FC<CartItemProps> = ({
   )
 }
 
-export default CartItem
+export default CartItem;

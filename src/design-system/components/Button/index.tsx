@@ -68,7 +68,6 @@ ${({ bgColor = 'primary', theme, variant}) => {
         if(variant === 'rounded'){
         // only allow theme colors for buttons
         const color = theme.colors[bgColor] || theme.colors.primary;
-
         const darkened = Color(color).darken(0.4).rgb().string();
         return css`
             background-color: ${color};
@@ -94,7 +93,6 @@ ${({ bgColor = 'primary', theme, variant}) => {
             `
     }}
 `;
-
 
 export const Button: React.FC<ButtonProps> = ({
     size,

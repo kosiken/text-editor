@@ -87,4 +87,4 @@ const ShoppingListItem: React.FC<{ item: GiftCard }> = ({ item }) => {
     )
 }
 
-export default ShoppingListItem
+export default ShoppingListItem;

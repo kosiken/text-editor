@@ -16,8 +16,7 @@ export class MainApi extends ApiBase {
     }
 
     public fetchGiftCards = this.createGenericFetch<
-    {status: string; data: InfoDataResponse; }
-    , never>("response.json", Methods.GET);
+    {status: string; data: InfoDataResponse; }, never>("response.json", Methods.GET);
 
 
     public static get Instance() {
@@ -28,7 +27,6 @@ export class MainApi extends ApiBase {
           ))
         );
     }
-    
 }
 
 export default MainApi.Instance;

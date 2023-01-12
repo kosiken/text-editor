@@ -3,9 +3,8 @@
  * the application
  */
 
-import { MainApi } from "./services/api";
-import { Store } from "redux";
-
+import { MainApi } from './services/api';
+import { Store } from 'redux';
 
 export interface GiftCard {
     productId: number;
@@ -47,12 +46,11 @@ export interface GiftCard {
     chi_pvd: string;
 }
 
-
 export interface AppState {
     errorMessage?: string;
     isLoading: boolean;
     message?: string;
-    messageType: "success" | "error" | "info";
+    messageType: 'success' | 'error' | 'info';
 }
 
 export interface ShopState {

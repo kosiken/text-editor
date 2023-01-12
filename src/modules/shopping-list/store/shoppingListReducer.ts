@@ -1,10 +1,7 @@
 import {createReducer} from 'typesafe-actions';
-
 import { Actions } from '../../../store/epics';
 import { fetchShoppingItems } from './actions';
-
 import { ShopState } from "../../../types";
-
 
 const initialState: ShopState = {
     fetchingItems: false,

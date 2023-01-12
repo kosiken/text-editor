@@ -14,7 +14,6 @@ const ringAnimation = keyframes`
 
 export type LoadingIndicatorProps = React.HTMLAttributes<HTMLDivElement> & HeightProps & WidthProps & { theme: AppTheme; };
 
-
  const LoadingIndicator = styled.div<LoadingIndicatorProps>`
     display: inline-block;
     ${height}

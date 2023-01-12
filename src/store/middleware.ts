@@ -1,4 +1,3 @@
-
 // just a logger to log every action that happens in the redux store
 export const logger = (store: any) => (next: any) => (action: any )=> {
     console.group(action.type)

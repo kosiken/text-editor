@@ -7,8 +7,6 @@ import {
 import { AppTheme } from '../../theme';
 import Color from 'color';
 
-
-
 interface BadgeBaseProps extends Omit<React.BaseHTMLAttributes<HTMLSpanElement>, 'style'> {
     theme: AppTheme;
     color?: string;

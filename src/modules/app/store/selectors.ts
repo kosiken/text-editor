@@ -6,8 +6,6 @@ export const selectAppState = createSelector(
     state => state.app,
   );
 
-
-
 export const selectMessage = createSelector(
   [selectAppState],
   state => state.message || ''

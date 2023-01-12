@@ -12,9 +12,6 @@ import CheckoutItem from './components/CheckoutItem';
 import { addRemoveFromCart, checkout } from './store/actions';
 import { selectCart } from './store/selectors';
 
-
-
-
 const CheckoutPage = () => {
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const [_, startTransition] = useTransition();

@@ -8,7 +8,6 @@ import ShoppingListItem from './components/ShoppingListItem';
 import { fetchShoppingItems } from './store/actions';
 import { selectShopListLoading, selectShoppingList } from './store/selectors';
 
-
 const StyledShoppingList = styled.div`
     display: grid;
     grid-template-columns: 150px 150px 150px;
@@ -38,8 +37,6 @@ const StyledShoppingList = styled.div`
     `
   }}
 `;
-
-
 
 const ShoppingList = () => {
   const dispatch = useDispatch();
@@ -92,4 +89,4 @@ const ShoppingList = () => {
   )
 }
 
-export default ShoppingList
+export default ShoppingList;

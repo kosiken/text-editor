@@ -12,9 +12,6 @@ import CartItem from './components/CartItem';
 import { addRemoveFromCart } from './store/actions';
 import { selectCart } from './store/selectors';
 
-
-
-
 const ShoppingCart = () => {
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const [_, startTransition] = useTransition();

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Provider } from "react-redux";
+import { Provider } from 'react-redux';
 import { ThemeProvider, createGlobalStyle } from 'styled-components';
 import { AppTheme, baseTheme } from './design-system/theme';
 import { history } from './history';
@@ -29,7 +29,6 @@ const GlobalStyle = createGlobalStyle<{ theme: AppTheme }>`
       color: ${({ theme }) => theme.colors.darkGreen};
     }
   }
-
   // Newer semantic elements don't have block styling in IE11
   article, header, nav, section, footer, aside {
     display: block;

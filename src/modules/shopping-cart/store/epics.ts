@@ -84,7 +84,7 @@ const checkOutEpic: RootEpic = action$ =>
                         if (res) {
                             return [setCart({}), putMessage({
                                 type: 'info',
-                                message: 'Checkout was successfull, thanks for shopping'
+                                message: 'Checkout was successful, thanks for shopping'
                             }), checkout.success(),
                         
                         pushRoute({

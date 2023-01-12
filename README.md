@@ -108,8 +108,6 @@ least 2048mb or RAM available otherwise the build may fail
 
 ```
 
-
-
 ## Directory Structure 
 
 ```sh
@@ -180,6 +178,12 @@ So in the modules folder there are unique modules, each module has the structure
 
 
 ## How to improve performance of flipbook
+
+I am not really clear on this but I think the question refers to an animation.
+So to improve performance of a flipbook animation you could opt to use `requestAnimationFrame` instead of 
+`setInterval()`. You could also shit the animation logic to a [web-worker](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Using_web_workers). 
+
+For CSS animations you could try delaying animations by a bit to allow a page to fully load.
 
  ### Author 
  Allison Kosisochukwu

@@ -20,6 +20,7 @@ project wouldn't win the award for UI but it's performance is very decent and th
 
 - [Nodejs v18.12.1](https://nodejs.org/en/)
 - [React v18.2.0](https://beta.reactjs.org/)
+- [Axios](https://axios-http.com/docs/intro) For HTTP requests
 - [Cypress v12.3.0](https://cypress.io) For tests, uses Mocha and Chai under the hood for assertions.
 - [Testing Library Cypress](https://testing-library.com/docs/cypress-testing-library/intro/) For tests
 - [Styled Components](https://styled-components.com/) Allows you to style components with css inside your tsx or jsx file
@@ -44,7 +45,6 @@ project wouldn't win the award for UI but it's performance is very decent and th
 ## How to run
 
 > You must have node version >= 16.2.0 to run this project.
-
 
 ### Clone this project 
 

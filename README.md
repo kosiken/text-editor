@@ -12,8 +12,8 @@ project wouldn't win the award for UI but it's performance is very decent and th
     - [Test mode](#run-the-local-webpack-dev-server)
     - [Production](#build-and-run-in-production)
     - [Testing](#run-end-to-end-tests)
-- [Directory Structure](#directory-structure)
-- [Modular Structure Explanation](#modular-structure-explanation)
+- [Design choices](#design-choices)
+    - [Modular Structure Explanation](#modular-structure-explanation)
 - [How to improve performance of flipbook](#how-to-improve-performance-of-flipbook)
 
 ## Technologies used
@@ -110,7 +110,18 @@ least 2048mb or RAM available otherwise the build may fail
 
 ```
 
-## Directory Structure 
+## Design Choices
+
+I used the [Styled Components](https://styled-components.com/) library for styling because I do not believe in the idea of importing .css 
+files for every component being built. The tradeoff here is that you have *CSS* syntax in JSX code which could rub some tailwindcss people
+the wrong way. 
+
+I went with a modular structure for this project basically the product is made up of modules, and each module encapsulates all the data that
+it needs to function and represents a seperate redux reducer, this allows for easy decoupling and removal or addition of new modules without 
+the headache of trying to figure out how many files depend on the state of the modules. This is also because of my background working on the 
+backend with `java`. I like the principle of **Seperation of concerns** very much
+
+### Directory Structure 
 
 ```sh
 

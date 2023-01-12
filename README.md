@@ -186,5 +186,6 @@ So to improve performance of a flipbook animation you could opt to use `requestA
 
 For CSS animations you could try delaying animations by a bit to allow a page to fully load.
 
- ### Author 
- Allison Kosisochukwu
+ ### Author
+
+[Allison Kosisochukwu](https://github.com/kosiken)

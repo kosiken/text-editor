@@ -1,3 +1,19 @@
+import { toast } from 'react-toastify';
+import { SCRIPTS } from '../app-constants';
+import { SCRIPTS_ENUM } from '../types';
+
+export enum MESSAGE_TYPE {
+  SUCCESS = 'success',
+  WARNING = 'warn',
+  ERROR = 'error',
+  DEFAULT = 'info',
+}
+
+export const notifyUser = (message: string, messageType = MESSAGE_TYPE.DEFAULT) => {
+  toast[messageType](message);
+};
+
+
 export function reduceString(text: string, length = 10): string {
     return text.length > length ? text.substring(0, length - 3) + '...' : text
 }
@@ -53,4 +69,47 @@ export function to2DecimalPlaces(numString: string | number, withCommas = false)
       return `${putCommas(values[0])}.${values[1]}`;
     }
   }
+
+  export const loadScript = (script: SCRIPTS_ENUM) => {
+    return new Promise<{
+      loaded: boolean;
+      error: boolean;
+    }>(function (res, rej) {
+      try {
+        const src = SCRIPTS[script].script;
+       
+  
+        const scriptObj = document.createElement("script");
+  
+        scriptObj.src = src;
+        scriptObj.async = true;
+  
+        const onScriptLoad = (): void => {
+          console.log('Loaded ' + script)
+          res({
+            loaded: true,
+            error: false,
+          });
+        };
+  
+        const onScriptError = (): void => {
+          console.log('Failed ' + script)
+          rej({
+            loaded: true,
+            error: true,
+          });
+        };
+        scriptObj.addEventListener("load", onScriptLoad);
+        scriptObj.addEventListener("complete", onScriptLoad);
+        scriptObj.addEventListener("error", onScriptError);
+  
+        document.body.appendChild(scriptObj);
+      } catch (err) {
+        rej({
+          error: true,
+          loaded: false,
+        });
+      }
+    });
+  };
   

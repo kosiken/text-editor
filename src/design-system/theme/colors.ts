@@ -1,11 +1,11 @@
 const siteBaseColors = {
-    green: '#21A374',
+    green: '#0A7227',
     red:'#B92716',
     darkOrange: '#C7511F',
     yellow: '#FFD814',
     darkGreen: '#168342',
     teal: '#007185',
-    darkGrey: '#939393',
+    darkGrey: '#808080',
     darkerGrey: '#6A6A6A',
     black: '#454545',
     white: '#FFFFFF',
@@ -28,7 +28,7 @@ const siteBaseColors = {
   }
 
   export const aliases = {
-    [ColorProp.PRIMARY]: siteBaseColors.yellow,
+    [ColorProp.PRIMARY]: siteBaseColors.green,
     [ColorProp.SECONDARY]: siteBaseColors.teal,
     [ColorProp.WARNING]: siteBaseColors.darkOrange,
     [ColorProp.SUCCESS]: siteBaseColors.green,

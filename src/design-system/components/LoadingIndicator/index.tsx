@@ -12,28 +12,30 @@ const ringAnimation = keyframes`
   }
  `;
 
-export type LoadingIndicatorProps = React.HTMLAttributes<HTMLDivElement> & HeightProps & WidthProps & { theme: AppTheme; };
+export type LoadingIndicatorProps = React.HTMLAttributes<HTMLDivElement> & {color?: string} & HeightProps & WidthProps & { theme: AppTheme; };
 
  const LoadingIndicator = styled.div<LoadingIndicatorProps>`
     display: inline-block;
     ${height}
     ${width}
+ 
   &:after {
     content: " ";
   display: block;
-  width: 64px;
-  height: 64px;
+  width: ${({ width }) => width};
+  height: ${({ height }) => height};
   margin: 8px;
   border-radius: 50%;
-  border: ${({ theme }) => `6px solid ${theme.colors.black}`};
-  border-color:  ${({ theme }) => `${theme.colors.black} transparent ${theme.colors.black} transparent`};
+  border: ${({ theme, color }) => `6px solid ${color || theme.colors.black}`};
+  border-color:  ${({ theme, color }) => `${color || theme.colors.black} transparent ${color || theme.colors.black} transparent`};
   animation: ${ringAnimation} 1.2s linear infinite;
   }
  `;
 
 LoadingIndicator.defaultProps = {
     height: '80px',
-    width: '80px'
+    width: '80px',
+    color: 'black'
  }
 
 export default LoadingIndicator;

@@ -1,17 +1,15 @@
-import {createSelector} from 'reselect';
-import { selectRootState } from '../../../store/selectors';
+import { createSelector } from "reselect";
+import { selectRootState } from "../../../store/selectors";
+import { SCRIPTS_ENUM } from "../../../types";
 
 export const selectAppState = createSelector(
-    [selectRootState],
-    state => state.app,
-  );
-
-export const selectMessage = createSelector(
-  [selectAppState],
-  state => state.message || ''
+  [selectRootState],
+  (state) => state.app
 );
 
-export const selectMessageType = createSelector(
-  [selectAppState],
-  state => state.messageType
-);
+export const selectScriptWaveLoaded = (script: SCRIPTS_ENUM) =>
+  createSelector([selectAppState], (state) => ({
+    loading: state.loading[script],
+    loaded: state.loaded[script],
+    error: state.error[script],
+  }));

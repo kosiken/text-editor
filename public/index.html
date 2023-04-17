@@ -1,20 +1,293 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
-    <meta
-      name="description"
-      content="Web site created using create-react-app"
-    />
-    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-    <title>Shop</title>
-  </head>
-  <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"></div>
-  </body>
+
+<head>
+  <meta charset="utf-8" />
+  <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#000000" />
+  <meta name="description" content="Web site created using create-react-app" />
+  <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+  <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+  <title>Blog</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+        'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+        sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    .none {
+      display: none !important;
+    }
+
+    .flex {
+      display: flex;
+    }
+
+    .center {
+      align-items: center;
+    }
+    .middle {
+      justify-content: center;
+    }
+
+    .between {
+      justify-content: space-between;
+    }
+
+    .text {
+      color: inherit;
+      margin: 0;
+    }
+
+    .bold {
+      font-weight: bold;
+
+    }
+
+    .text-small {
+
+      font-size: 12px;
+    }
+
+    .text-normal {
+
+      font-size: 14px;
+    }
+
+    .editor-upload-div {
+      height: 141px;
+      border: 1px dashed  #0A7227;
+background: #FAFAFA 0% 0% no-repeat padding-box;
+border-radius: 4px;
+    }
+    .editor-modal {
+      position: fixed;
+      inset: 0px;
+      background-color: rgba(0, 0, 0, 0.47);
+      z-index: 9999;
+    }
+    .left-text-justify {
+      text-align: left;
+    }
+    .right-text-justify {
+      text-align: right;
+    }
+    .center-text-justify {
+      text-align: right;
+    }
+    .italics {
+      font-style: italic;
+    }
+    .editor-modal-content {
+      position: absolute;
+      inset: initial;
+      border: 1px solid rgb(204, 204, 204);
+      background: transparent;
+      overflow: auto;
+      border-radius: 4px;
+      outline: none;
+      padding: 20px;
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  
+    .editor-modal-form {
+      box-sizing: border-box;
+      background-color: #FFFFFF;
+      min-width: 300px;
+      width: 80vw;
+      padding: 15px;
+      max-width: 600px;
+    }
+
+    .editor-input-container {
+      box-sizing: border-box;
+      margin-top: 15px;
+      margin-bottom: 15px;
+    }
+
+    .editor-input-text {
+      color: #333333;
+      color: #333333;
+      margin: 10px 0;
+      -webkit-letter-spacing: 0.13px;
+      -moz-letter-spacing: 0.13px;
+      -ms-letter-spacing: 0.13px;
+      letter-spacing: 0.13px;
+      font-size: 12px;
+      text-transform: capitalize;
+    }
+
+    .editor-input {
+      background: #FAFAFA 0% 0% no-repeat padding-box;
+      border: 1px solid #E7F1E9;
+      border-radius: 4px;
+      width: 100%;
+      line-height: 15px;
+      padding: 7px 10px 10px 0;
+      margin: 0;
+      font-size: 15px;
+      color: #111;
+      outline: 0;
+      box-sizing: border-box;
+      -webkit-appearance: none;
+      box-shadow: none;
+      text-indent: 8px;
+      direction: ltr;
+    }
+
+    label.checkbox {
+      cursor: pointer;
+      text-indent: -9999px;
+      width: 32px;
+      height: 20px;
+      background: #808080;
+      display: block;
+      border-radius: 15px;
+      position: relative;
+    }
+
+    label.checkbox::after {
+      content: '';
+      position: absolute;
+      top: 3px;
+      left: 2px;
+      width: 14px;
+      height: 14px;
+      background: #fff;
+      border-radius: 8px;
+      transition: 0.3s;
+    }
+
+    label.checkbox:active::after {
+      width: 25px;
+    }
+
+    input.checkbox {
+      height: 0;
+      width: 0 !important;
+      border: none;
+    padding: 0;
+    width: 0 !important;
+    font-size: 0 !important;
+      visibility: hidden;
+    }
+
+    input.checkbox:checked+label {
+      background: #0A7227;
+    }
+
+    input.checkbox:checked+label::after {
+      left: calc(100% - 3px);
+      transform: translateX(-100%);
+    }
+
+    .button {
+      cursor: pointer;
+      -webkit-letter-spacing: 1px;
+      -moz-letter-spacing: 1px;
+      -ms-letter-spacing: 1px;
+      letter-spacing: 1px;
+      outline: none;
+      position: relative;
+      border: none;
+      white-space: nowrap;
+      border-radius: 4px;
+      min-width: -webkit-fit-content;
+      min-width: -moz-fit-content;
+      min-width: fit-content;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+      text-align: center;
+      max-width: 205px;
+      padding: 8px 16px;
+      color: #FFFFFF;
+      margin-right: 5px;
+      border: none;
+      display: inline-block;
+      background-color: #0A7227;
+    }
+
+    .button:hover {
+      cursor: pointer;
+      outline: none;
+      background-color: rgb(6, 68, 23);
+      color: #FFFFFF;
+    }
+
+    .button-outlined {
+      border: 1px solid #CEE3D4;
+      background: none;
+      color: black;
+    }
+
+    .button-outlined:hover {
+      background: none;
+      cursor: pointer;
+      outline: none;
+      border: 1px solid rgb(96, 164, 115);
+      color: black;
+    }
+    .button-upload {
+background: #FFFFFF 0% 0% no-repeat padding-box;
+border: 1px solid #6CAA7D;
+border-radius: 4px;
+    }
+    .button p {
+      letter-spacing: 0px;
+      font-weight: bold;
+      font-size: 14px;
+      color: inherit;
+      margin: 0;
+    }
+    .button-upload p {
+      font-weight: normal;
+      color: #343E37;
+    }
+
+    .lds-dual-ring {
+      display: inline-block;
+      width: 80px;
+      height: 80px;
+    }
+
+    .lds-dual-ring:after {
+      content: " ";
+      display: block;
+      width: 20px;
+      height: 20px;
+      margin: 8px;
+      border-radius: 50%;
+      border: 6px solid black;
+      border-color: black transparent black transparent;
+      animation: lds-dual-ring 1.2s linear infinite;
+    }
+
+    @keyframes lds-dual-ring {
+      0% {
+        transform: rotate(0deg);
+      }
+
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <noscript>You need to enable JavaScript to run this app.</noscript>
+
+   <div id="root"></div>
+
 </html>

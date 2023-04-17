@@ -11,7 +11,7 @@ const properties = compose(
    height
   );
 
-const InputBase = styled.input<{theme: AppTheme; }>`
+const SelectBase = styled.select<{theme: AppTheme; }>`
     background: #FAFAFA 0% 0% no-repeat padding-box;
     border: 1px solid #E7F1E9;
     border-radius: 4px;
@@ -20,7 +20,6 @@ const InputBase = styled.input<{theme: AppTheme; }>`
     padding: 7px 10px 10px 0;
     margin: 0;
     font-size: 15px;
-
     color: #111;
     outline: 0;
     box-sizing: border-box;
@@ -30,6 +29,6 @@ const InputBase = styled.input<{theme: AppTheme; }>`
     direction: ltr;
 `
 // Styled components also allows you to extend base styles.
-const Input = styled(InputBase)({}, properties);
+const Select = styled(SelectBase)({}, properties);
 
-export default Input;
+export default Select;

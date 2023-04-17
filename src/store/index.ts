@@ -5,11 +5,10 @@ import {
 import { ToolkitStore } from '@reduxjs/toolkit/dist/configureStore';
 import thunk from 'redux-thunk';
 import api from '../services/api';
-import { RootState, SCRIPTS_ENUM, Services } from '../types';
+import { RootState, Services } from '../types';
 import { Actions, configureEpic } from './epics';
 import { logger } from './middleware';
 import appReducer from '../modules/app/store/appReducer';
-import { loadScriptAction } from '../modules/app/store/actions';
 
 
 

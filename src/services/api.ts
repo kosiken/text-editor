@@ -9,7 +9,7 @@ export class MainApi extends ApiBase {
         return (
           this._instance ||
           (this._instance = new MainApi(
-           'http://localhost:1337/api/v1',
+           'https://api.letstalkmd.net/api/v1',
           ))
         );
     }

@@ -87,7 +87,7 @@ class NewPost extends Component<{}, NewPostState> {
             class: LinkEmbed,
             inlineToolbar: true,
             config: {
-              endpoint: "http://localhost:1337/api/v1/get-meta",
+              endpoint: "https://api.letstalkmd.net/api/v1/get-meta",
             },
           },
           embed: {
@@ -180,12 +180,13 @@ class NewPost extends Component<{}, NewPostState> {
         />
         <div id="editorjs"/>
         </div>
-      <Box background="#FFFFFF 0% 0% no-repeat padding-box" position="absolute" bottom="0" left="0" width="100%" textAlign="right" borderRadius="0px 0px 4px 4px" padding="10px" border="1px solid #E7F1E9">
+
+
+      </Box>
+      <Box  width="90%" margin="0 auto"  background="#FFFFFF 0% 0% no-repeat padding-box" textAlign="right" borderRadius="0px 0px 4px 4px" padding="10px" border="1px solid #E7F1E9" >
         <Text>
           {this.state.words}/1000 words
         </Text>
-      </Box>
-
       </Box>
       <Box width="90%" textAlign="right"  margin="15px auto" >
      <button className="button" onClick={() => {

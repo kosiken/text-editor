@@ -70,6 +70,7 @@
     "@editorjs/list": "^1.8.0",
     "@editorjs/quote": "^2.5.0",
     "@editorjs/simple-image": "^1.5.1",
+    "@types/color": "^3.0.3",
     "@types/react-helmet": "^6.1.6",
     "@types/react-modal": "^3.13.1",
     "@types/styled-components": "^5.1.26",

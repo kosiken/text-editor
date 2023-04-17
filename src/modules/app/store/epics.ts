@@ -11,7 +11,6 @@ import qs from "querystring";
 import { ROUTES } from "../../../history";
 import { navigateTo } from "../../../history";
 import { MESSAGE_TYPE, loadScript, notifyUser } from "../../../helpers";
-import { SCRIPTS } from "../../../app-constants";
 
 const navigateEpic: RootEpic = (actions$) =>
   actions$.pipe(

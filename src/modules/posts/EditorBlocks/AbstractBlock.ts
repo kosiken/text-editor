@@ -1,6 +1,5 @@
 import {
     BlockTool,
-    BlockToolConstructable,
     BlockToolConstructorOptions,
     API,
     BlockAPI,

@@ -1,12 +1,7 @@
 
 
 import {
-    BlockTool,
-    BlockToolConstructable,
     BlockToolConstructorOptions,
-    API,
-    BlockAPI,
-    PasteEvent,
   } from "@editorjs/editorjs";
   import AbstractBlock from "./AbstractBlock";
 import NewPost from "../NewPost";
